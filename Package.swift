@@ -10,7 +10,7 @@ let package = Package(
       targets: ["SwiftMarkdown2"]),
   ],
   dependencies: [
-    .package(url: "https://github.com/pvieito/PythonKit.git", .branch("master")),
+    .package(url: "https://github.com/pvieito/PythonKit.git", .revision("260ae70cddeadf42a7a0edce0dfc7f00343b5d1a")),
   ],
   targets: [
     .target(
