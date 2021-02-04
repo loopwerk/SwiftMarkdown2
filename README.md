@@ -22,3 +22,5 @@ Using Swift Package Manager
 ```
 .package(url: "https://github.com/loopwerk/SwiftMarkdown2", .branch("main")),
 ```
+
+Because PythonKit is not a versioned packaged, sadly SwiftMarkdown2 can also not be pinned to a version. As such, `.branch("main")` is necessary. I really hope PythonKit will tag a release soon.
