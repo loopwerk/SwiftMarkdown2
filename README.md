@@ -14,3 +14,11 @@ print(markdown.html)
 ```
 
 See https://github.com/trentm/python-markdown2/wiki/Extras for documentation on the "extras".
+
+## Installation
+
+Using Swift Package Manager
+
+```
+.package(url: "https://github.com/loopwerk/SwiftMarkdown2", .branch("main")),
+```
