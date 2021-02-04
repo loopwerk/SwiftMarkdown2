@@ -36,5 +36,7 @@ print("Hello World")
 
   static var allTests = [
     ("testBasic", testBasic),
+    ("testMetadata", testMetadata),
+    ("testCodeHighlight", testCodeHighlight),
   ]
 }
