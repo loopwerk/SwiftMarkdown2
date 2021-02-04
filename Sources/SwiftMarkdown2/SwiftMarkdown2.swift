@@ -28,11 +28,27 @@ public struct SwiftMarkdown2 {
     case xml = "xml"
     case tagFriendly = "tag-friendly"
     case taskList = "task_list"
+
+    var options: [String: String]? {
+      switch self {
+        case .fencedCodeBlocks:
+          return ["cssclass": "highlight"]
+        default:
+          return nil
+      }
+    }
   }
 
   public static func markdown(_ string: String, extras: [Extra] = []) throws -> Markdown {
     let markdown2 = try Python.attemptImport("markdown2")
-    let result = markdown2.markdown.dynamicallyCall(withKeywordArguments: ["text": string, "extras": extras.map(\.rawValue)])
+
+    let extras: [String: [String: String]?] = extras.reduce([:], { dict, next in
+      var dict = dict
+      dict[next.rawValue] = next.options
+      return dict
+    })
+
+    let result = markdown2.markdown.dynamicallyCall(withKeywordArguments: ["text": string, "extras": extras])
     let metadata: [String: String] = Dictionary(result.metadata) ?? [:]
     return Markdown(html: String(result) ?? "", metadata: metadata)
   }

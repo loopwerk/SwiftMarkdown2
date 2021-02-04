@@ -22,6 +22,18 @@ Foo bar
     XCTAssertEqual(result.metadata, ["tag": "swift", "date": "2021-02-04"])
   }
 
+  func testCodeHighlight() {
+    let string = """
+``` swift
+print("Hello World")
+```
+"""
+
+    let result = try! SwiftMarkdown2.markdown(string, extras: [.fencedCodeBlocks])
+
+    XCTAssertEqual(result.html, "<div class=\"highlight\"><pre><span></span><code><span class=\"bp\">print</span><span class=\"p\">(</span><span class=\"s\">&quot;Hello World&quot;</span><span class=\"p\">)</span>\n</code></pre></div>\n")
+  }
+
   static var allTests = [
     ("testBasic", testBasic),
   ]
