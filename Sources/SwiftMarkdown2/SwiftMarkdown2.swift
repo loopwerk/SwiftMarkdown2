@@ -1,8 +1,18 @@
 import PythonKit
 
 public struct Markdown {
-  public var html: String
-  public var metadata: [String : String]
+  /// The HTML representation of the Markdown, ready to
+  /// be rendered in a web browser.
+  public let html: String
+
+  /// Any metadata values found at the top of the Markdown document.
+  /// See https://github.com/trentm/python-markdown2/wiki/metadata for more information.
+  public let metadata: [String : String]
+
+  internal init(html: String, metadata: [String : String]) {
+    self.html = html
+    self.metadata = metadata
+  }
 }
 
 public struct SwiftMarkdown2 {
@@ -22,7 +32,6 @@ public struct SwiftMarkdown2 {
     case spoiler = "spoiler"
     case strike = "strike"
     case targetBlankLinks = "target-blank-links"
-    case toc = "toc"
     case tables = "tables"
     case wikiTables = "wiki-tables"
     case xml = "xml"

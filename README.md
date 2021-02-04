@@ -21,8 +21,8 @@ date: 2021-02-04
 This uses metadata
 """
 
-let markdown = try SwiftMarkdown2.markdown(string, extras: [.metadata])
-print(markdown.metadata) // ["tags": "news, swift", "date": "2021-02-04"]
+let markdownWithMetadata = try SwiftMarkdown2.markdown(string, extras: [.metadata])
+print(markdownWithMetadata.metadata) // ["tags": "news, swift", "date": "2021-02-04"]
 
 ```
 
