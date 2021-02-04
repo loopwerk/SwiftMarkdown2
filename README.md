@@ -9,8 +9,21 @@ You'll need to install python-markdown2 (and optionally pygments) yourself.
 ``` swift
 import SwiftMarkdown2
 
-let markdown = try SwiftMarkdown2.markdown("Hello, World!", extras=[.fencedCodeBlocks])
+let markdown = try SwiftMarkdown2.markdown("Hello, World!", extras: [.fencedCodeBlocks])
 print(markdown.html)
+
+let string = """
+---
+tags: news, swift
+date: 2021-02-04
+---
+# Hello world
+This uses metadata
+"""
+
+let markdown = try SwiftMarkdown2.markdown(string, extras: [.metadata])
+print(markdown.metadata) // ["tags": "news, swift", "date": "2021-02-04"]
+
 ```
 
 See https://github.com/trentm/python-markdown2/wiki/Extras for documentation on the "extras".
